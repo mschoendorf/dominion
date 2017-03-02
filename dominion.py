@@ -1,46 +1,17 @@
 from card import Card, PileOfCards
 from move import Move
 from player import Player
-
-
-class Board():
-
-    def __init__(self, numberOfVictoryCards):
-        self.piles_by_cost = {
-            0: [PileOfCards(Card(0, 1, 0), 100)],
-            2: [PileOfCards(Card(1, 0, 2), numberOfVictoryCards)],
-            3: [PileOfCards(Card(0, 2, 3), 100)],
-            5: [PileOfCards(Card(3, 0, 5), numberOfVictoryCards)],
-            6: [PileOfCards(Card(0, 3, 6), 100)],
-            8: [PileOfCards(Card(6, 0, 8), numberOfVictoryCards)]
-        }
-        self.province_cards = self.piles_by_cost[8][0]
-
-    def is_game_over(self):
-        return self.province_cards.number == 0
-
-    def affordable_piles(self, max_cost):
-        piles = []
-        for i in range(max_cost + 1):
-            if (i in self.piles_by_cost and len(self.piles_by_cost[i]) > 0):
-                for pile in self.piles_by_cost[i]:
-                    if pile.number > 0:
-                        piles.append(pile)
-        return piles
-
-    def __str__(self):
-        return str(self.piles_by_cost)
-
-    def __repr__(self):
-        return self.__str__()
+from board import Board
+import strategy
+from collections import Counter
 
 
 class Game():
 
-    def __init__(self, num_players):
-        self.players = [Player(i) for i in range(num_players)]
+    def __init__(self, players):
+        self.players = players
         victory_cards = 8
-        if (self.players > 3):
+        if (len(self.players) > 3):
             victory_cards = 10
         self.board = Board(victory_cards)
         self.whose_turn = 0
@@ -53,26 +24,42 @@ class Game():
 
         # check to see if it is over:
         if (self.board.is_game_over()):
-            print('current player: ' + str(self.whose_turn))
-            winner = self.who_won()
-            print("winner: " + str(winner))
-            print("losers: " +
-                  str([p for p in self.players if p.id != winner.id]))
-            print(self.board)
-            return True
+            return False
         else:
             self.whose_turn = (self.whose_turn + 1) % len(self.players)
-            return False
+            return True
+
+    def play_game(self):
+        i = 0
+        while(self.play_turn()):
+            i += 1
+            if (i > 200):
+                print('Too many turns! Ending game')
+                break
 
     def who_won(self):
         return max(self.players, key=lambda p: p.total_points())
 
+    def print_game_over_stats(self):
+        winner = self.who_won()
+        print("Winner: " + str(winner))
+        print("Losers: ")
+        print([p for p in self.players if p.id != winner.id])
+        print(self.board)
+
 
 def main():
-    game = Game(2)
-    while(True):
-        if (game.play_turn()):
-            break
+    winners = Counter()
+    for i in range(1000):
+        players = [
+            Player(0, strategy.Random()),
+            Player(1, strategy.MostExpensive()),
+            Player(2, strategy.MostExpensiveNoCheap())
+        ]
+        game = Game(players)
+        game.play_game()
+        winners.update([game.who_won().id])
+    print(winners)
 
 if __name__ == "__main__":
     main()

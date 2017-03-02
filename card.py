@@ -1,14 +1,19 @@
+from collections import Counter
+
+
 class Card():
 
-    def __init__(self, points, money, cost):
+    def __init__(self, points, treasure, cost):
         self.points = points
-        self.money = money
+        self.treasure = treasure
         self.cost = cost
 
     def __str__(self):
         if (self.points != 0):
             return 'V' + str(self.points)
-        return 'C' + str(self.money)
+        if (self.treasure != 0):
+            return 'T' + str(self.treasure)
+        return 'Pass'
 
     def __repr__(self):
         return self.__str__()
@@ -23,7 +28,7 @@ class PileOfCards():
     def remove_card(self):
         if (self.number > 0):
             self.number -= 1
-            return Card(self.card.points, self.card.money, self.card.cost)
+            return Card(self.card.points, self.card.treasure, self.card.cost)
         else:
             raise Error('cannot remove card from pile')
 
@@ -32,3 +37,8 @@ class PileOfCards():
 
     def __repr__(self):
         return self.__str__()
+
+
+def print_cards(cards):
+    cardSet = Counter(cards)
+    return str(cardSet)

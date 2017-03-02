@@ -4,51 +4,81 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-Board	dominion.py	/^class Board():$/;"	kind:class	line:6
-Card	card.py	/^class Card():$/;"	kind:class	line:1
+ABCMeta	strategy.py	/^from abc import ABCMeta, abstractmethod$/;"	kind:namespace	line:1
+Board	board.py	/^class Board():$/;"	kind:class	line:4
+Board	dominion.py	/^from board import Board$/;"	kind:namespace	line:4
+Card	board.py	/^from card import Card, PileOfCards$/;"	kind:namespace	line:1
+Card	card.py	/^class Card():$/;"	kind:class	line:4
 Card	dominion.py	/^from card import Card, PileOfCards$/;"	kind:namespace	line:1
-Card	player.py	/^from card import Card$/;"	kind:namespace	line:1
-Game	dominion.py	/^class Game():$/;"	kind:class	line:38
+Card	player.py	/^from card import Card, print_cards$/;"	kind:namespace	line:1
+Counter	card.py	/^from collections import Counter$/;"	kind:namespace	line:1
+Counter	player.py	/^from collections import Counter$/;"	kind:namespace	line:4
+Game	dominion.py	/^class Game():$/;"	kind:class	line:8
+MostExpensive	strategy.py	/^class MostExpensive(Strategy):$/;"	kind:class	line:33
+MostExpensiveNoCheap	strategy.py	/^class MostExpensiveNoCheap(Strategy):$/;"	kind:class	line:42
 Move	dominion.py	/^from move import Move$/;"	kind:namespace	line:2
 Move	move.py	/^class Move():$/;"	kind:class	line:1
 Move	player.py	/^from move import Move$/;"	kind:namespace	line:2
-PileOfCards	card.py	/^class PileOfCards():$/;"	kind:class	line:17
+PileOfCards	board.py	/^from card import Card, PileOfCards$/;"	kind:namespace	line:1
+PileOfCards	card.py	/^class PileOfCards():$/;"	kind:class	line:22
 PileOfCards	dominion.py	/^from card import Card, PileOfCards$/;"	kind:namespace	line:1
 Player	dominion.py	/^from player import Player$/;"	kind:namespace	line:3
-Player	player.py	/^class Player():$/;"	kind:class	line:6
-__init__	card.py	/^    def __init__(self, card, number):$/;"	kind:member	line:19
-__init__	card.py	/^    def __init__(self, points, money, cost):$/;"	kind:member	line:3
-__init__	dominion.py	/^    def __init__(self, num_players):$/;"	kind:member	line:40
-__init__	dominion.py	/^    def __init__(self, numberOfVictoryCards):$/;"	kind:member	line:8
+Player	player.py	/^class Player():$/;"	kind:class	line:7
+Random	strategy.py	/^class Random(Strategy):$/;"	kind:class	line:24
+Strategy	strategy.py	/^class Strategy:$/;"	kind:class	line:5
+__init__	board.py	/^    def __init__(self, numberOfVictoryCards):$/;"	kind:member	line:6
+__init__	card.py	/^    def __init__(self, card, number):$/;"	kind:member	line:24
+__init__	card.py	/^    def __init__(self, points, treasure, cost):$/;"	kind:member	line:6
+__init__	dominion.py	/^    def __init__(self, players):$/;"	kind:member	line:10
 __init__	move.py	/^    def __init__(self, buying_power, card):$/;"	kind:member	line:3
-__init__	player.py	/^    def __init__(self, id):$/;"	kind:member	line:8
-__repr__	card.py	/^    def __repr__(self):$/;"	kind:member	line:13
-__repr__	card.py	/^    def __repr__(self):$/;"	kind:member	line:33
-__repr__	dominion.py	/^    def __repr__(self):$/;"	kind:member	line:34
+__init__	player.py	/^    def __init__(self, id, strategy):$/;"	kind:member	line:9
+__init__	strategy.py	/^    def __init__(self):$/;"	kind:member	line:26
+__init__	strategy.py	/^    def __init__(self):$/;"	kind:member	line:35
+__init__	strategy.py	/^    def __init__(self):$/;"	kind:member	line:44
+__init__	strategy.py	/^    def __init__(self, name):$/;"	kind:member	line:8
+__metaclass__	strategy.py	/^    __metaclass__ = ABCMeta$/;"	kind:variable	line:6
+__repr__	board.py	/^    def __repr__(self):$/;"	kind:member	line:32
+__repr__	card.py	/^    def __repr__(self):$/;"	kind:member	line:18
+__repr__	card.py	/^    def __repr__(self):$/;"	kind:member	line:38
 __repr__	move.py	/^    def __repr__(self):$/;"	kind:member	line:10
-__repr__	player.py	/^    def __repr__(self):$/;"	kind:member	line:60
-__str__	card.py	/^    def __str__(self):$/;"	kind:member	line:30
-__str__	card.py	/^    def __str__(self):$/;"	kind:member	line:8
-__str__	dominion.py	/^    def __str__(self):$/;"	kind:member	line:31
+__repr__	player.py	/^    def __repr__(self):$/;"	kind:member	line:64
+__repr__	strategy.py	/^    def __repr__(self):$/;"	kind:member	line:17
+__str__	board.py	/^    def __str__(self):$/;"	kind:member	line:29
+__str__	card.py	/^    def __str__(self):$/;"	kind:member	line:11
+__str__	card.py	/^    def __str__(self):$/;"	kind:member	line:35
 __str__	move.py	/^    def __str__(self):$/;"	kind:member	line:7
-__str__	player.py	/^    def __str__(self):$/;"	kind:member	line:57
-affordable_piles	dominion.py	/^    def affordable_piles(self, max_cost):$/;"	kind:member	line:22
-buy_card	player.py	/^    def buy_card(self, pile):$/;"	kind:member	line:37
-buying_power	player.py	/^    def buying_power(self):$/;"	kind:member	line:28
+__str__	player.py	/^    def __str__(self):$/;"	kind:member	line:61
+__str__	strategy.py	/^    def __str__(self):$/;"	kind:member	line:14
+abstractmethod	strategy.py	/^from abc import ABCMeta, abstractmethod$/;"	kind:namespace	line:1
+affordable_piles	board.py	/^    def affordable_piles(self, max_cost):$/;"	kind:member	line:20
+board.py	board.py	1;"	kind:file	line:1
+buy_card	player.py	/^    def buy_card(self, pile):$/;"	kind:member	line:36
+buying_power	player.py	/^    def buying_power(self):$/;"	kind:member	line:30
 card.py	card.py	1;"	kind:file	line:1
-choose_card	player.py	/^    def choose_card(self, piles):$/;"	kind:member	line:34
+choose_card	player.py	/^    def choose_card(self, piles):$/;"	kind:member	line:44
+choose_card	strategy.py	/^    def choose_card(self, state, piles): pass$/;"	kind:member	line:12
+choose_card	strategy.py	/^    def choose_card(self, state, piles):$/;"	kind:member	line:29
+choose_card	strategy.py	/^    def choose_card(self, state, piles):$/;"	kind:member	line:38
+choose_card	strategy.py	/^    def choose_card(self, state, piles):$/;"	kind:member	line:47
+cleanup_phase	player.py	/^    def cleanup_phase(self):$/;"	kind:member	line:47
 dominion.py	dominion.py	1;"	kind:file	line:1
-draw_cards_into_hand	player.py	/^    def draw_cards_into_hand(self, num=5):$/;"	kind:member	line:22
-is_game_over	dominion.py	/^    def is_game_over(self):$/;"	kind:member	line:19
-main	dominion.py	/^def main():$/;"	kind:function	line:71
+draw_cards_into_hand	player.py	/^    def draw_cards_into_hand(self, num=5):$/;"	kind:member	line:24
+is_game_over	board.py	/^    def is_game_over(self):$/;"	kind:member	line:17
+main	dominion.py	/^def main():$/;"	kind:function	line:50
 move.py	move.py	1;"	kind:file	line:1
-play_hand	player.py	/^    def play_hand(self, board):$/;"	kind:member	line:45
-play_turn	dominion.py	/^    def play_turn(self):$/;"	kind:member	line:48
+play_game	dominion.py	/^    def play_game(self):$/;"	kind:member	line:31
+play_hand	player.py	/^    def play_hand(self, board):$/;"	kind:member	line:52
+play_turn	dominion.py	/^    def play_turn(self):$/;"	kind:member	line:18
 player.py	player.py	1;"	kind:file	line:1
-print_moves	player.py	/^    def print_moves(self):$/;"	kind:member	line:54
-print_state	player.py	/^    def print_state(self):$/;"	kind:member	line:50
+print_cards	card.py	/^def print_cards(cards):$/;"	kind:function	line:42
+print_cards	player.py	/^from card import Card, print_cards$/;"	kind:namespace	line:1
+print_game_over_stats	dominion.py	/^    def print_game_over_stats(self):$/;"	kind:member	line:42
+print_moves	player.py	/^    def print_moves(self):$/;"	kind:member	line:58
 random	player.py	/^import random$/;"	kind:namespace	line:3
-remove_card	card.py	/^    def remove_card(self):$/;"	kind:member	line:23
-shuffle_deck	player.py	/^    def shuffle_deck(self):$/;"	kind:member	line:17
-total_points	player.py	/^    def total_points(self):$/;"	kind:member	line:31
-who_won	dominion.py	/^    def who_won(self):$/;"	kind:member	line:67
+random	strategy.py	/^import random$/;"	kind:namespace	line:2
+remove_card	card.py	/^    def remove_card(self):$/;"	kind:member	line:28
+shuffle_deck	player.py	/^    def shuffle_deck(self):$/;"	kind:member	line:19
+strategy	dominion.py	/^import strategy$/;"	kind:namespace	line:5
+strategy.py	strategy.py	1;"	kind:file	line:1
+total_points	player.py	/^    def total_points(self):$/;"	kind:member	line:33
+who_won	dominion.py	/^    def who_won(self):$/;"	kind:member	line:39
